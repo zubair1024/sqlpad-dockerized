@@ -1,0 +1,17 @@
+version: "3"
+services:
+  sqlpad:
+    env_file:
+      - .env
+    image: "sqlpad/sqlpad:latest"
+    container_name: "${NAME}"
+    hostname: "sqlpad"
+    ports:
+      - "${PORT}:3000"
+    environment:
+      - SQLPAD_DEBUG=TRUE
+    volumes:
+      - sqlpad-volume:/var/lib/sqlpad
+
+volumes:
+  sqlpad-volume:
